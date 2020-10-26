@@ -37,7 +37,6 @@
 		A9D1D62725430D2C00D12FEA /* ItemSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemSheet.swift; sourceTree = "<group>"; };
 		A9D1D62A25430D6200D12FEA /* ChatOne.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatOne.swift; sourceTree = "<group>"; };
 		A9FB4B712546DEE2009152A3 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		A9FB4B752546E0FD009152A3 /* Place.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Place.entitlements; sourceTree = "<group>"; };
 		E902551F5400C1884CD7FCFF /* Pods-Place.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Place.release.xcconfig"; path = "Pods/Target Support Files/Pods-Place/Pods-Place.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -91,7 +90,6 @@
 		A9D1D5F6254308EB00D12FEA /* Place */ = {
 			isa = PBXGroup;
 			children = (
-				A9FB4B752546E0FD009152A3 /* Place.entitlements */,
 				A9D1D5F7254308EB00D12FEA /* AppDelegate.swift */,
 				A9D1D5F9254308EB00D12FEA /* SceneDelegate.swift */,
 				A9D1D63025430DA500D12FEA /* View */,

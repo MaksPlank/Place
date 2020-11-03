@@ -29,8 +29,10 @@ class Login: UIViewController {
         regOutlet.layer.cornerRadius = 20
         loginOutlet.layer.cornerRadius = 20
         worningOutlet.alpha = 0
-        openOutlet.layer.cornerRadius = 50
+        openOutlet.layer.cornerRadius = 40
         passwordTextField.isSecureTextEntry = true
+        emailTextField.layer.cornerRadius = 10
+        passwordTextField.layer.cornerRadius = 10
         
         NotificationCenter.default.addObserver(self, selector: #selector(kbDidShow), name: UIResponder.keyboardDidShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(kbDidHide), name: UIResponder.keyboardDidHideNotification, object: nil)
@@ -75,19 +77,22 @@ class Login: UIViewController {
     
     
     
-    
+//MARK: - OPEN -
+// openOutlet
     @IBAction func openAction(_ sender: UIButton) {
         // Check : (user, auth) for changes
         Auth.auth().addStateDidChangeListener { [weak self] (auth, user) in
+            self?.openOutlet.backgroundColor = #colorLiteral(red: 0, green: 0.3673218489, blue: 0.2219335139, alpha: 1)
             if user != nil {
-                self?.performSegue(withIdentifier: (self?.IdentifierSegueTask)!, sender: nil)
+                self?.performSegue(withIdentifier: (self?.IdentifierSegueTask)!, sender: nil) as? ItemSheet
                 }
             }
-    }
+        }
     
     
     
-//MARK: - Worning (worningOutlet) -
+//MARK: - WORNING text -
+// worningOutlet
     func worningText(WithText text: String) {
        worningOutlet.text = text
        // .curveEaseInOut = плавная анимация
@@ -99,8 +104,8 @@ class Login: UIViewController {
     }
     
     
-//MARK: - AUTHORIZATION
-    // Метод для авторизации пользователя (если он существует) : кнопка Login -
+//MARK: - AUTHORIZATION - Login
+    // Метод для авторизации пользователя (если он существует)
     @IBAction func loginAction(_ sender: UIButton) {
         guard let email = emailTextField.text, let password = passwordTextField.text, email != "", password != "" else {
         self.worningText(WithText: "Wrong password or email!")

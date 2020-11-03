@@ -13,24 +13,39 @@
     var ref: DatabaseReference!
     var dataArray = Array<Data>()  // box foe array (for save)
     
+    @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var headder: UIView!
+    
+    var custHeight: NSLayoutConstraint?
+    var custBottom: NSLayoutConstraint?
+    
     
     
     
     
 //MARK: - viewDidLoad -
-    
     // ID for userBox.uid +  Firebase link = users/user/tasks/
     override func viewDidLoad() {
-    super.viewDidLoad()
-    guard let currentUserId = Auth.auth().currentUser else { return }
-    userBox = Сlient(userInit: currentUserId) // currentUser.uid & currentUser.email
-    ref = Database.database().reference(withPath: "users").child(String(userBox.uid)).child("tasks")
-    }
+        super.viewDidLoad()
+        guard let currentUserId = Auth.auth().currentUser else { return }
+           userBox = Сlient(userInit: currentUserId) // currentUser.uid & currentUser.email
+           ref = Database.database().reference(withPath: "users").child(String(userBox.uid)).child("tasks")
+
+        
+        //MARK: -  Paralax Effect : for header -
+        guard let header = tableView.tableHeaderView else { return }
+           if let image = header.subviews.first as? UIImageView {
+              custHeight = image.constraints.filter{ $0.identifier == "heightMark" }.first
+              custBottom = header.constraints.filter{ $0.identifier == "bottomMark" }.first
+              }
+           let offSetY = tableView.contentOffset.y
+               custHeight?.constant = max(header.bounds.height, header.bounds.height + offSetY)
+               custBottom?.constant = offSetY >= 0 ? 0 : offSetY / 2
+           header.clipsToBounds = offSetY <= 0
+           }
     
 //MARK: - viewWillAppear -
-    //Set observer + Get data from Firebase
+    // Set observer + Get data from Firebase
     override func viewWillAppear(_ animated: Bool) {
         super .viewWillAppear(true)
         
@@ -56,7 +71,6 @@
         
     
 //MARK: - TABLE -
-    
     // show data from Firebase : .Title
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
        let cell = tableView.dequeueReusableCell(withIdentifier: "Row", for: indexPath)
@@ -94,21 +108,21 @@
        dataTitle.ref?.updateChildValues(["mark" : dataMark])
        }
     
-    // .Mark
-    func markMake(_ cell: UITableViewCell, mark: Bool) {
-       cell.accessoryType = mark ? .checkmark : .none
-       }
+        // .Mark
+        func markMake(_ cell: UITableViewCell, mark: Bool) {
+        cell.accessoryType = mark ? .checkmark : .none
+        }
 
 
     
 //MARK: - ADD -
     @IBAction func addAction(_ sender: UIBarButtonItem) {
-        let alertController = UIAlertController(title: "Text me", message: "", preferredStyle: .alert)
+        let controller = UIAlertController(title: "Text me", message: "", preferredStyle: .alert)
         let cancel = UIAlertAction(title: "Cancel", style: .default, handler: nil)
                 
                 
          let save = UIAlertAction(title: "Save", style: .cancel) { [weak self] _ in
-             guard let textF = alertController.textFields?.first, textF.text != "" else { return }
+             guard let textF = controller.textFields?.first, textF.text != "" else { return }
                     
          // MARK: - Save Data in FIREBASE -
         let data = Data(title: textF.text!, userId: (self?.userBox.uid)!)
@@ -116,10 +130,10 @@
         taskWay?.setValue(data.convertToDict())
         }
                 
-       alertController.addTextField()
-       alertController.addAction(cancel)
-       alertController.addAction(save)
-       present(alertController, animated: true, completion: nil)
+       controller.addTextField()
+       controller.addAction(cancel)
+       controller.addAction(save)
+       present(controller, animated: true, completion: nil)
        }
         
     

@@ -1,9 +1,3 @@
-//
-//  Gallery.swift
-//  Place
-//
-//  Created by Maks Plank on 27.10.2020.
-//
 
 import UIKit
 
@@ -13,6 +7,9 @@ class Gallery: UIViewController {
         super.viewDidLoad()
         }
     
-
+    @IBAction func closeButton(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true, completion: nil)
+        }
+    
 
 }

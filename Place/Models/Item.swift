@@ -18,6 +18,8 @@ struct Data {
         self.ref = nil
         }
     
+    
+
     // For FETCH data
     init(snapShotInit: DataSnapshot) {
         let snapShotValue = snapShotInit.value as! [String: AnyObject]

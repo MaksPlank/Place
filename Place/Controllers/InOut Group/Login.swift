@@ -12,8 +12,12 @@ import FirebaseDatabase
 
 class Login: UIViewController {
 
+    
+    
+    
+    
     var ref: DatabaseReference!
-    private let IdentifierSegueTask = "taskWay"
+    private let IdentifierSegueTask = "firstSegue"
     
     @IBOutlet weak var worningOutlet: UILabel!
     @IBOutlet weak var emailTextField: UITextField!
@@ -24,7 +28,9 @@ class Login: UIViewController {
     
     override func viewDidLoad() {
     super.viewDidLoad()
+
         ref = Database.database().reference(withPath: "users") // user wasn't enable yet
+    
         
         regOutlet.layer.cornerRadius = 20
         loginOutlet.layer.cornerRadius = 20
@@ -44,7 +50,7 @@ class Login: UIViewController {
        }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-       (self.view as! UIScrollView).scrollIndicatorInsets = UIEdgeInsets(top: 0, left: 0, bottom: self.view.bounds.size.height * 2 , right: 0)
+//       (self.view as! UIScrollView).scrollIndicatorInsets = UIEdgeInsets(top: 0, left: 0, bottom: self.view.bounds.size.height * 2 , right: 0)
        }
     
     
@@ -59,21 +65,52 @@ class Login: UIViewController {
     
     
     
- //MARK: - KEYBOARD UP -
+// //MARK: - KEYBOARD UP -
+//
+//    @objc func kbDidShow(notification: Notification) {
+//    guard let userInfo = notification.userInfo else { return }
+//    let kbFrameSize = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+//    (self.view as! UIScrollView).contentSize = CGSize(width: self.view.bounds.size.width, height: self.view.bounds.size.height + kbFrameSize.height)
+//
+//    // + UIScrillView (storyboard for View)
+//    (self.view as! UIScrollView).scrollIndicatorInsets = UIEdgeInsets(top: 0, left: 0, bottom: kbFrameSize.height, right: 0)
+//    }
+//
+//    @objc func kbDidHide() {
+//    // восстановление исходного значения для контента
+//    (self.view as! UIScrollView).contentSize = CGSize(width: self.view.bounds.size.width, height: self.view.bounds.size.height)
+//    }
     
-    @objc func kbDidShow(notification: Notification) {
-    guard let userInfo = notification.userInfo else { return }
-    let kbFrameSize = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
-    (self.view as! UIScrollView).contentSize = CGSize(width: self.view.bounds.size.width, height: self.view.bounds.size.height + kbFrameSize.height)
+    
+    //MARK: - Метод для поднятия клавиатуры -
+
+        @objc func kbDidShow(notification: Notification) {
+          return
+            guard let userInfo = notification.userInfo else { return }
+          
+            guard let vstak = self.view as? UIScrollView else {
+                return
+            }
+            
+            let kbFrameSize = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+            
+            vstak.contentSize = CGSize(width: self.view.bounds.size.width, height: self.view.bounds.size.height + kbFrameSize.height)
+            // + UIScrillView (storyboard for View)
+           
+            vstak.scrollIndicatorInsets = UIEdgeInsets(top: 0, left: 0, bottom: kbFrameSize.height, right: 0)
+           }
         
-    // + UIScrillView (storyboard for View)
-    (self.view as! UIScrollView).scrollIndicatorInsets = UIEdgeInsets(top: 0, left: 0, bottom: kbFrameSize.height, right: 0)
-    }
+        @objc func kbDidHide() {
+            return
+            // восстановление исходного значения для контента
+            (self.view as! UIScrollView).contentSize = CGSize(width: self.view.bounds.size.width, height: self.view.bounds.size.height)
+            }
     
-    @objc func kbDidHide() {
-    // восстановление исходного значения для контента
-    (self.view as! UIScrollView).contentSize = CGSize(width: self.view.bounds.size.width, height: self.view.bounds.size.height)
-    }
+    
+    
+    
+    
+    
     
     
     
@@ -84,7 +121,7 @@ class Login: UIViewController {
         Auth.auth().addStateDidChangeListener { [weak self] (auth, user) in
             self?.openOutlet.backgroundColor = #colorLiteral(red: 0, green: 0.3673218489, blue: 0.2219335139, alpha: 1)
             if user != nil {
-                self?.performSegue(withIdentifier: (self?.IdentifierSegueTask)!, sender: nil) as? ItemSheet
+                self?.performSegue(withIdentifier: (self?.IdentifierSegueTask)!, sender: nil)
                 }
             }
         }
@@ -121,7 +158,7 @@ class Login: UIViewController {
        }
     // user is exist :
        if user != nil {
-       self?.performSegue(withIdentifier: "taskWay", sender: nil)
+       self?.performSegue(withIdentifier: "firstSegue", sender: nil)
        }
     
        self?.worningText(WithText: "No such user")
@@ -139,7 +176,7 @@ class Login: UIViewController {
     
     // REGESRTATION into Firebase
     Auth.auth().createUser(withEmail: email, password: password) { [weak self] (user, error) in
-    // У пользователя появляется email в Firebas >> TaskVC уже с заполненным полем для почты
+        // email in Firebas >> TaskVC уже с заполненным полем для почты
         guard error == nil, user != nil else {
         print(error!.localizedDescription)
         return

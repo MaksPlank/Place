@@ -9,8 +9,10 @@
 /* Begin PBXBuildFile section */
 		081346DA92AB45B2A37F7A4E /* Pods_Place.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B8F2BC69ABE89119993FC7A /* Pods_Place.framework */; };
 		A9077A4E254AE099001E8018 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9077A4D254AE099001E8018 /* Assets.xcassets */; };
-		A9077A5D254AE65E001E8018 /* ItemSheetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9077A5C254AE65E001E8018 /* ItemSheetCell.swift */; };
+		A9373CF925553A25009920B6 /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9373CF825553A25009920B6 /* Register.swift */; };
+		A9373CFD255555E0009920B6 /* ChatOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9373CFC255555E0009920B6 /* ChatOne.swift */; };
 		A943C716254825940007C3B7 /* Gallery.swift in Sources */ = {isa = PBXBuildFile; fileRef = A943C715254825940007C3B7 /* Gallery.swift */; };
+		A97DEADB2551BEA40096FA1A /* ButtonsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97DEADA2551BEA40096FA1A /* ButtonsVC.swift */; };
 		A9D1D5F8254308EB00D12FEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D1D5F7254308EB00D12FEA /* AppDelegate.swift */; };
 		A9D1D5FA254308EB00D12FEA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D1D5F9254308EB00D12FEA /* SceneDelegate.swift */; };
 		A9D1D604254308EC00D12FEA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9D1D602254308EC00D12FEA /* LaunchScreen.storyboard */; };
@@ -19,7 +21,6 @@
 		A9D1D62225430CC200D12FEA /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D1D62125430CC200D12FEA /* Item.swift */; };
 		A9D1D62525430CFE00D12FEA /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D1D62425430CFE00D12FEA /* Login.swift */; };
 		A9D1D62825430D2C00D12FEA /* ItemSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D1D62725430D2C00D12FEA /* ItemSheet.swift */; };
-		A9D1D62B25430D6200D12FEA /* ChatOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D1D62A25430D6200D12FEA /* ChatOne.swift */; };
 		A9FB4B722546DEE2009152A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9FB4B712546DEE2009152A3 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -27,8 +28,10 @@
 		2B8F2BC69ABE89119993FC7A /* Pods_Place.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Place.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		59880C08424C89E3BC46B3AD /* Pods-Place.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Place.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Place/Pods-Place.debug.xcconfig"; sourceTree = "<group>"; };
 		A9077A4D254AE099001E8018 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		A9077A5C254AE65E001E8018 /* ItemSheetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemSheetCell.swift; sourceTree = "<group>"; };
+		A9373CF825553A25009920B6 /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
+		A9373CFC255555E0009920B6 /* ChatOne.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatOne.swift; sourceTree = "<group>"; };
 		A943C715254825940007C3B7 /* Gallery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gallery.swift; sourceTree = "<group>"; };
+		A97DEADA2551BEA40096FA1A /* ButtonsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonsVC.swift; sourceTree = "<group>"; };
 		A9D1D5F4254308EB00D12FEA /* Place.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Place.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9D1D5F7254308EB00D12FEA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A9D1D5F9254308EB00D12FEA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,7 +42,6 @@
 		A9D1D62125430CC200D12FEA /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		A9D1D62425430CFE00D12FEA /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		A9D1D62725430D2C00D12FEA /* ItemSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemSheet.swift; sourceTree = "<group>"; };
-		A9D1D62A25430D6200D12FEA /* ChatOne.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatOne.swift; sourceTree = "<group>"; };
 		A9FB4B712546DEE2009152A3 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		E902551F5400C1884CD7FCFF /* Pods-Place.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Place.release.xcconfig"; path = "Pods/Target Support Files/Pods-Place/Pods-Place.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -71,6 +73,40 @@
 				E902551F5400C1884CD7FCFF /* Pods-Place.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		A9373CEF25553914009920B6 /* InOut Group */ = {
+			isa = PBXGroup;
+			children = (
+				A9D1D62425430CFE00D12FEA /* Login.swift */,
+				A9373CF825553A25009920B6 /* Register.swift */,
+				A97DEADA2551BEA40096FA1A /* ButtonsVC.swift */,
+			);
+			path = "InOut Group";
+			sourceTree = "<group>";
+		};
+		A9373CF02555398C009920B6 /* Chat Group */ = {
+			isa = PBXGroup;
+			children = (
+				A9373CFC255555E0009920B6 /* ChatOne.swift */,
+			);
+			path = "Chat Group";
+			sourceTree = "<group>";
+		};
+		A9373CF1255539A0009920B6 /* Notes Group */ = {
+			isa = PBXGroup;
+			children = (
+				A9D1D62725430D2C00D12FEA /* ItemSheet.swift */,
+			);
+			path = "Notes Group";
+			sourceTree = "<group>";
+		};
+		A9373CF2255539BD009920B6 /* Place Gallery */ = {
+			isa = PBXGroup;
+			children = (
+				A943C715254825940007C3B7 /* Gallery.swift */,
+			);
+			path = "Place Gallery";
 			sourceTree = "<group>";
 		};
 		A9D1D5EB254308EB00D12FEA = {
@@ -117,11 +153,10 @@
 		A9D1D62F25430D8000D12FEA /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				A9D1D62425430CFE00D12FEA /* Login.swift */,
-				A9D1D62725430D2C00D12FEA /* ItemSheet.swift */,
-				A9077A5C254AE65E001E8018 /* ItemSheetCell.swift */,
-				A9D1D62A25430D6200D12FEA /* ChatOne.swift */,
-				A943C715254825940007C3B7 /* Gallery.swift */,
+				A9373CEF25553914009920B6 /* InOut Group */,
+				A9373CF1255539A0009920B6 /* Notes Group */,
+				A9373CF02555398C009920B6 /* Chat Group */,
+				A9373CF2255539BD009920B6 /* Place Gallery */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -257,11 +292,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				A943C716254825940007C3B7 /* Gallery.swift in Sources */,
-				A9D1D62B25430D6200D12FEA /* ChatOne.swift in Sources */,
+				A97DEADB2551BEA40096FA1A /* ButtonsVC.swift in Sources */,
 				A9D1D62825430D2C00D12FEA /* ItemSheet.swift in Sources */,
-				A9077A5D254AE65E001E8018 /* ItemSheetCell.swift in Sources */,
+				A9373CF925553A25009920B6 /* Register.swift in Sources */,
 				A9D1D62225430CC200D12FEA /* Item.swift in Sources */,
 				A9D1D62525430CFE00D12FEA /* Login.swift in Sources */,
+				A9373CFD255555E0009920B6 /* ChatOne.swift in Sources */,
 				A9D1D5F8254308EB00D12FEA /* AppDelegate.swift in Sources */,
 				A9D1D5FA254308EB00D12FEA /* SceneDelegate.swift in Sources */,
 				A9D1D61F25430CAE00D12FEA /* User.swift in Sources */,
